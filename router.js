@@ -31,13 +31,13 @@ handler.hello = (query, callback) => {
         : greetings[2];
 
   // Store the hello object
-  let hello = {
+  let helloPacket = {
     greetings: chosenGreeting,
     username: username,
     time: time
   };
 
-  callback(200, hello);
+  callback(200, helloPacket);
 };
 
 // Handler notFound
