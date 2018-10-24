@@ -20,11 +20,7 @@ handler.hello = (query, callback) => {
   // get the language of choice
   let language = typeof query.language !== "undefined" ? query.language : "en";
 
-  // Define and store all the greetings for different part of the day
-  // Based on the chosenLanguage
-  // const greetings = ["Good Morning", "Good Afternoon", "Good Evening"];
-
-  // get the chosenlanguage
+  // get the chosen greeting based on the language
   const chosenGreetings =
     language == "en" ? greetings : language == "in" ? salam : salutations;
 
