@@ -10,14 +10,14 @@ const getHourAndMinute = require("./time");
 // Define the handler
 let handler = {};
 
-// Define and store all the greetings for different part of the day
-const greetings = ["Good Morning", "Good Afternoon", "Good Evening"];
-
 // Handler hello
 handler.hello = (query, callback) => {
   // get the username from the query
   let username =
     typeof query.username !== "undefined" ? query.username : "World";
+
+  // Define and store all the greetings for different part of the day
+  const greetings = ["Good Morning", "Good Afternoon", "Good Evening"];
 
   // Get hour and minute store in time variable as an object
   let time = getHourAndMinute();
