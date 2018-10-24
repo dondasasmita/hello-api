@@ -4,8 +4,9 @@
  * Not Found Route is handled by Not Found Handler
  */
 
-// Load the time module
+// Load the time and language module
 const getHourAndMinute = require("./time");
+const { greetings, salam, salutations } = require("./languages");
 
 // Define the handler
 let handler = {};
@@ -16,23 +17,31 @@ handler.hello = (query, callback) => {
   let username =
     typeof query.username !== "undefined" ? query.username : "World";
 
+  // get the language of choice
+  let language = typeof query.language !== "undefined" ? query.language : "en";
+
   // Define and store all the greetings for different part of the day
-  const greetings = ["Good Morning", "Good Afternoon", "Good Evening"];
+  // Based on the chosenLanguage
+  // const greetings = ["Good Morning", "Good Afternoon", "Good Evening"];
+
+  // get the chosenlanguage
+  const chosenGreetings =
+    language == "en" ? greetings : language == "in" ? salam : salutations;
 
   // Get hour and minute store in time variable as an object
   let time = getHourAndMinute();
 
   // select the correct greeting based on the time of the day
-  let chosenGreeting =
+  let greeting =
     time.hour < 12 && time.hour == 0
-      ? greetings[0]
+      ? chosenGreetings[0]
       : time.hour > 12 && time.hour < 18
-        ? greetings[1]
-        : greetings[2];
+        ? chosenGreetings[1]
+        : chosenGreetings[2];
 
   // Store the hello object
   let helloPacket = {
-    greetings: chosenGreeting,
+    greetings: greeting,
     username: username,
     time: time
   };
