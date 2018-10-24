@@ -2,7 +2,7 @@
 
 This is the first assignment in node masterclass course by pirple.
 
-This program is a simple "Hello World" API. It is a RESTful JSON API that listens to port 3000. When someone make a GET request to the route /hello, it will return a greeting, based on the time of the day, and time in JSON format.
+This program is a simple "Hello World" API. It is a RESTful JSON API that listens to port 3000. When someone make a GET request to the route /hello, it will return a greeting in your chosen language, based on the time of the day, as well as displaying time in JSON format.
 
 ## Getting Started
 
@@ -22,11 +22,13 @@ You should see in the console:
 Server listen to port 3000
 ```
 
-Type the following URL in your browser or postman and insert your name:
+Type the following URL in your browser or postman, insert your name and language:
 
 ```
-localhost:3000/hello?username=[ENTER YOUR NAME]
+localhost:3000/hello?username=[ENTER YOUR NAME]&language=[TYPE en OR in OR fr]
 ```
+
+Note: en - English in - Indonesian fr - french
 
 You should be getting a JSON object as follow:
 
