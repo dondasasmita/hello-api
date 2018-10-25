@@ -13,11 +13,11 @@ let handler = {};
 
 // Handler hello
 handler.hello = (query, callback) => {
-  // get the username from the query
+  // get the username from the query, set world as default
   let username =
     typeof query.username !== "undefined" ? query.username : "World";
 
-  // get the language of choice
+  // get the language of choice, set English as default
   let language = typeof query.language !== "undefined" ? query.language : "en";
 
   // get the chosen greeting based on the language
@@ -29,9 +29,9 @@ handler.hello = (query, callback) => {
 
   // select the correct greeting based on the time of the day
   let greeting =
-    time.hour < 12 && time.hour == 0
+    time.hour < 12 && time.hour >= 00
       ? chosenGreetings[0]
-      : time.hour > 12 && time.hour < 18
+      : time.hour >= 12 && time.hour <= 18
         ? chosenGreetings[1]
         : chosenGreetings[2];
 
